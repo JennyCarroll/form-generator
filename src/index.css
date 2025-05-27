@@ -78,8 +78,8 @@ button:focus-visible {
 
 .form-group {
   position: relative;
-  display: flex;
-  z-index: 100000;
+  display: flex;  
+  /* z-index: 100000; */
   margin-bottom: 24px;
   max-width: 300px;
   gap: 8px;
@@ -87,6 +87,7 @@ button:focus-visible {
 }
 
 .form-group label {
+  line-height: 1.2;
   position: absolute;
   top: -10px;
   left: 12px;

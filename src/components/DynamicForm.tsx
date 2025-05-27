@@ -156,7 +156,7 @@ const DynamicForm = () => {
             defaultValue={field.value?.val === "yes"}
             render={({ field: controllerField }) => (
               <input
-                style={{ width: "20px", height: "20px" }}
+                style={{ width: "16px", height: "16px" }}
                 type="checkbox"
                 {...controllerField}
                 checked={controllerField.value}
