@@ -78,7 +78,7 @@ button:focus-visible {
 
 .form-group {
   position: relative;
-  z-index: 1; /* low */
+  z-index: 100000; /* low */
   margin-bottom: 24px;
   max-width: 300px;
 }
@@ -92,7 +92,7 @@ button:focus-visible {
   font-size: 0.85rem;
   color: #555;
   pointer-events: none;
-  z-index: 3; /* slightly higher than input border */
+  z-index: 1; 
 }
 
 /* inputs, selects, etc */
@@ -101,7 +101,6 @@ button:focus-visible {
 .form-group .react-datepicker-wrapper,
 .form-group .react-select__control {
   position: relative;
-  z-index: 2;
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #ccc;
@@ -110,11 +109,3 @@ button:focus-visible {
   font-size: 1rem;
   outline-offset: 2px;
 }
-
-/* Dropdown menus get very high z-index */
-.react-select__menu,
-.react-datepicker-popper {
-  z-index: 1000 !important;
-}
-
-
