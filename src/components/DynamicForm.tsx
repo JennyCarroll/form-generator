@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Button } from "./Button.styled";
+import { Button, Spinner } from "./Button.styled";
 import dummyData from "../data/data.json";
 // import axios from 'axios';
 
@@ -244,7 +244,7 @@ const DynamicForm = () => {
         ))
       )}
       <Button background="purple" disabled={loading} type="submit">
-        {loading ? "Generating..." : "Generate Form"}
+        {loading ? <Spinner/> : "Generate Form"}
       </Button>
     </form>
   );

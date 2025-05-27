@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
 const white = '#FFFFFF'
 
@@ -132,4 +133,22 @@ export const Button = styled.button<ButtonProps>`
         opacity: 0.7;
         cursor: not-allowed;
     }
+`;
+
+
+// Spinner animation
+const spin = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+// Spinner styled component
+export const Spinner = styled.div`
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: ${spin} 0.6s linear infinite;
 `;
