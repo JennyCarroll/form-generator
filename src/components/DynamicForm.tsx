@@ -150,6 +150,7 @@ const DynamicForm = () => {
                   control: (base) => ({
                     ...base,
                     width: "300px",
+                    padding: "1px",
                   }),
                   menuPortal: (base) => ({ ...base, zIndex: 2147483647 }),
                 }}
@@ -232,8 +233,9 @@ const DynamicForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {Object.entries(formSchema).map(([pageKey, sections]) =>
         Object.entries(sections).map(([sectionKey, fields]) => (
-          <div key={sectionKey}>
+          <div  key={sectionKey}>
             <h2 style={{textTransform: 'capitalize'}}>{sectionKey.replace(/_/g, " ")}</h2>
+            <div className='section'>
             {Object.entries(fields)
               .filter(
                 ([fieldKey]) => fieldKey !== "validate" && fieldKey !== "ok"
@@ -252,6 +254,9 @@ const DynamicForm = () => {
                   {renderField(`${pageKey}.${sectionKey}.${fieldKey}`, field)}
                 </div>
               ))}
+
+            </div>
+
           </div>
         ))
       )}

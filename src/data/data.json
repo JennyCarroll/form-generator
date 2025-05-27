@@ -2506,7 +2506,7 @@
         ],
         "value": "Hebrew"
       },
-      "are_you_able_to_communicate_in_english_or_french": {
+      "communicate_in_english_or_french": {
         "field_type": "search_listbox",
         "location": [
           1062,
@@ -5474,7 +5474,7 @@
         ],
         "value": "Moshe Got Mandavoshkes"
       },
-      "have_you_ever_remained_beyond_validity": {
+      "remained_beyond_validity": {
         "field_type": "boolean_checkbox",
         "location": [
           0,
