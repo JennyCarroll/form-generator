@@ -80,7 +80,7 @@ const DynamicForm = () => {
             control={control}
             defaultValue={field.value || ""}
             render={({ field: controllerField }) => (
-              <input {...controllerField} />
+              <input style={{color: 'rgb(51, 51, 51)'}} {...controllerField} />
             )}
           />
         );
@@ -151,7 +151,7 @@ const DynamicForm = () => {
                   <input
                     {...controllerField}
                     placeholder="Country Code"
-                    style={{ width: 80 }}
+                    style={{ width: 80, color: 'rgb(51, 51, 51)' }}
                   />
                 )}
               />
@@ -163,7 +163,7 @@ const DynamicForm = () => {
                   <input
                     {...controllerField}
                     placeholder="Phone Number"
-                    style={{ width: 150 }}
+                    style={{ width: 150, color: 'rgb(51, 51, 51)'  }}
                   />
                 )}
               />
@@ -182,7 +182,7 @@ const DynamicForm = () => {
       {Object.entries(formSchema).map(([pageKey, sections]) =>
         Object.entries(sections).map(([sectionKey, fields]) => (
           <div key={sectionKey}>
-            <h2>{sectionKey.replace(/_/g, " ")}</h2>
+            <h2>{sectionKey.replace(/_/g, " ").toUpperCase()}</h2>
             {Object.entries(fields)
               .filter(
                 ([fieldKey]) => fieldKey !== "validate" && fieldKey !== "ok"
