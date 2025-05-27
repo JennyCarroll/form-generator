@@ -24,12 +24,10 @@ interface FormSchema {
   };
 }
 
-
 const DynamicForm = () => {
   const { control, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
   const [formSchema, setFormSchema] = useState<FormSchema>(dummyData);
-
 
   useEffect(() => {
     // axios.get('https://???')
@@ -50,14 +48,14 @@ const DynamicForm = () => {
         for (const [fieldKey, field] of Object.entries(fields)) {
           const flatKey = `${pageKey}.${sectionKey}.${fieldKey}`; // or whatever key format you're using
           const submittedValue = formData[flatKey];
-  
+
           if (submittedValue !== undefined) {
             field.value = submittedValue;
           }
         }
       }
     }
-  
+
     console.log("Recreated schema:", output);
     // try {
     //   const response = await axios.post('https://your-backend-endpoint.com/generate-pdf', data, {
@@ -96,7 +94,10 @@ const DynamicForm = () => {
             control={control}
             defaultValue={field.value || ""}
             render={({ field: controllerField }) => (
-              <input style={{color: 'rgb(51, 51, 51)'}} {...controllerField} />
+              <input
+                style={{ color: "rgb(51, 51, 51)" }}
+                {...controllerField}
+              />
             )}
           />
         );
@@ -105,12 +106,12 @@ const DynamicForm = () => {
           <Controller
             name={name}
             control={control}
-            defaultValue={field.value || undefined}
+            defaultValue={selectedOption}
             render={({ field: controllerField }) => (
               <Select
                 {...controllerField}
                 options={selectOptions}
-                value={selectedOption || ""}
+                value={controllerField.value}
                 onChange={(val) => controllerField.onChange(val)}
                 menuPortalTarget={document.body}
                 styles={{
@@ -118,7 +119,7 @@ const DynamicForm = () => {
                     ...base,
                     width: "300px", // or "300px" if you want a fixed width
                   }),
-                  menuPortal: (base) => ({ ...base, zIndex: 2147483647 }), 
+                  menuPortal: (base) => ({ ...base, zIndex: 2147483647 }),
                 }}
               />
             )}
@@ -135,7 +136,7 @@ const DynamicForm = () => {
                 style={{ width: "20px", height: "20px" }}
                 type="checkbox"
                 {...controllerField}
-                checked={!!field.value}
+                checked={controllerField.value}
               />
             )}
           />
@@ -145,11 +146,13 @@ const DynamicForm = () => {
           <Controller
             name={name}
             control={control}
-            defaultValue={new Date(field.value?.val)}
+            defaultValue={field.value?.val ? new Date(field.value.val) : null}
             render={({ field: controllerField }) => (
               <DatePicker
                 selected={controllerField.value}
                 onChange={controllerField.onChange}
+                popperClassName="datepicker-popper"
+                portalId="root-portal"
               />
             )}
           />
@@ -167,7 +170,7 @@ const DynamicForm = () => {
                   <input
                     {...controllerField}
                     placeholder="Country Code"
-                    style={{ width: 80, color: 'rgb(51, 51, 51)' }}
+                    style={{ width: 80, color: "rgb(51, 51, 51)" }}
                   />
                 )}
               />
@@ -179,7 +182,7 @@ const DynamicForm = () => {
                   <input
                     {...controllerField}
                     placeholder="Phone Number"
-                    style={{ width: 150, color: 'rgb(51, 51, 51)'  }}
+                    style={{ width: 150, color: "rgb(51, 51, 51)" }}
                   />
                 )}
               />
