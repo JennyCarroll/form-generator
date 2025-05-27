@@ -106,7 +106,7 @@ const DynamicForm = () => {
           </div>
         ))
       )}
-      <Button background="green" disabled={loading} type="submit">{loading ? 'Generating...' : 'Generate Form'}</Button>
+      <Button background="purple" disabled={loading} type="submit">{loading ? 'Generating...' : 'Generate Form'}</Button>
     </form>
   );
 };

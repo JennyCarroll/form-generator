@@ -93,6 +93,7 @@ export const Button = styled.button<ButtonProps>`
     padding: ${(props) => (props.isUnreadNotifications ? '0 9px' : '0 12px')};
     font-size: 16px;
     font-weight: 500;
+    min-width: 136px
 
     path {
         fill: ${(props) =>
