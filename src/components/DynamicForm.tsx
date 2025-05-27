@@ -7,10 +7,29 @@ import { Button } from "./Button.styled";
 import dummyData from "../data/data.json";
 // import axios from 'axios';
 
+interface Field {
+  field_type: string;
+  location: number[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value?: any;
+  options?: string[];
+  func_name?: string;
+}
+
+interface FormSchema {
+  [pageKey: string]: {
+    [sectionKey: string]: {
+      [fieldKey: string]: Field;
+    };
+  };
+}
+
+
 const DynamicForm = () => {
   const { control, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
-  const [formSchema, setFormSchema] = useState(dummyData);
+  const [formSchema, setFormSchema] = useState<FormSchema>(dummyData);
+
 
   useEffect(() => {
     // axios.get('https://???')
@@ -34,8 +53,7 @@ const DynamicForm = () => {
     // }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const renderField = (name: string, field: any) => {
+  const renderField = (name: string, field: Field) => {
     const selectOptions =
       Array.isArray(field.options) && field.options.length > 0
         ? field.options.map((opt: string) => ({
@@ -80,7 +98,11 @@ const DynamicForm = () => {
                 onChange={(val) => controllerField.onChange(val)}
                 menuPortalTarget={document.body}
                 styles={{
-                  menuPortal: (base) => ({ ...base, zIndex: 2147483647 }),
+                  control: (base) => ({
+                    ...base,
+                    width: "300px", // or "300px" if you want a fixed width
+                  }),
+                  menuPortal: (base) => ({ ...base, zIndex: 2147483647 }), 
                 }}
               />
             )}
@@ -94,6 +116,7 @@ const DynamicForm = () => {
             defaultValue={field.value?.val === "yes"}
             render={({ field: controllerField }) => (
               <input
+                style={{ width: "20px", height: "20px" }}
                 type="checkbox"
                 {...controllerField}
                 checked={!!field.value}
@@ -164,9 +187,17 @@ const DynamicForm = () => {
               .filter(
                 ([fieldKey]) => fieldKey !== "validate" && fieldKey !== "ok"
               )
-              .map(([fieldKey, field]) => (
+              .map(([fieldKey, field]: [string, Field]) => (
                 <div className="form-group" key={fieldKey}>
-                  <label>{fieldKey.replace(/_/g, " ")}</label>
+                  <label
+                    className={
+                      field.field_type === "boolean_checkbox"
+                        ? "checkbox-label"
+                        : ""
+                    }
+                  >
+                    {fieldKey.replace(/_/g, " ")}
+                  </label>
                   {renderField(`${pageKey}.${sectionKey}.${fieldKey}`, field)}
                 </div>
               ))}

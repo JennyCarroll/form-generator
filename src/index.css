@@ -81,6 +81,10 @@ button:focus-visible {
   z-index: 100000; /* low */
   margin-bottom: 24px;
   max-width: 300px;
+  gap: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .form-group label {
@@ -93,6 +97,16 @@ button:focus-visible {
   color: #555;
   pointer-events: none;
   z-index: 1; 
+}
+
+.form-group .checkbox-label {
+  position: static; /* reset absolute positioning for checkbox labels */
+  background: transparent;
+  padding: 0;
+  font-size: 1rem;
+  color: #555;
+  pointer-events: auto;
+  user-select: none;
 }
 
 /* inputs, selects, etc */
