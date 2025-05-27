@@ -48,7 +48,7 @@ const DynamicForm = () => {
         value: field.value,
       }];
 
-    const selectedOption = selectOptions.find((opt: { label: string; value: string }) => opt.value === field.value) || '';
+    const selectedOption = selectOptions.find((opt: { label: string; value: string }) => opt.value === field.value) || undefined;
 
     switch (field.field_type) {
       case 'str':
@@ -65,7 +65,7 @@ const DynamicForm = () => {
           <Controller
             name={name}
             control={control}
-            defaultValue={field.value || ''}
+            defaultValue={field.value || undefined}
                   render={({ field: controllerField }) => (
         <Select
           {...controllerField}
@@ -83,7 +83,7 @@ const DynamicForm = () => {
             control={control}
             defaultValue={field.value?.val === 'yes'}
             render={({ field: controllerField  }) => (
-              <input type="checkbox" {...controllerField} checked={field.value} />
+              <input type="checkbox" {...controllerField} checked={!!field.value} />
             )}
           />
         );
@@ -149,7 +149,7 @@ const DynamicForm = () => {
             {Object.entries(fields)
             .filter(([fieldKey]) => fieldKey !== 'validate' && fieldKey !== 'ok')
             .map(([fieldKey, field]) => (
-              <div key={fieldKey}>
+              <div className="form-group" key={fieldKey}>
                 <label>{fieldKey.replace(/_/g, ' ')}</label>
                 {renderField(`${pageKey}.${sectionKey}.${fieldKey}`, field)}
               </div>

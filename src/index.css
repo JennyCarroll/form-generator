@@ -29,6 +29,10 @@ p {
   margin-block-end: 0;
 }
 
+h2 {
+  margin: 1.5rem 0rem;
+}
+
 /* input,
 select {
     width: 100%;
@@ -70,3 +74,47 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.form-group {
+  position: relative;
+  z-index: 1; /* low */
+  margin-bottom: 24px;
+  max-width: 300px;
+}
+
+.form-group label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: white;
+  padding: 0 4px;
+  font-size: 0.85rem;
+  color: #555;
+  pointer-events: none;
+  z-index: 3; /* slightly higher than input border */
+}
+
+/* inputs, selects, etc */
+.form-group input,
+.form-group select,
+.form-group .react-datepicker-wrapper,
+.form-group .react-select__control {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  outline-offset: 2px;
+}
+
+/* Dropdown menus get very high z-index */
+.react-select__menu,
+.react-datepicker-popper {
+  z-index: 1000 !important;
+}
+
+
