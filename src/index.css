@@ -125,5 +125,5 @@ button:focus-visible {
 }
 
 .datepicker-popper {
-  z-index: 2147483648 !important; /* super high value to appear on top */
+  z-index: 2147483648 !important; 
 }

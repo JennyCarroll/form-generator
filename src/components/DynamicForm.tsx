@@ -40,17 +40,37 @@ const DynamicForm = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = async (formData: Record<string, any>) => {
     setLoading(true);
-    console.log("Form Data:", formData);
-    const output = structuredClone(formSchema); // Deep copy to avoid mutation
+    const output = structuredClone(formSchema);
 
     for (const [pageKey, sections] of Object.entries(output)) {
       for (const [sectionKey, fields] of Object.entries(sections)) {
         for (const [fieldKey, field] of Object.entries(fields)) {
-          const flatKey = `${pageKey}.${sectionKey}.${fieldKey}`; // or whatever key format you're using
-          const submittedValue = formData[flatKey];
+          const rawValue = formData?.[pageKey]?.[sectionKey]?.[fieldKey];
 
-          if (submittedValue !== undefined) {
-            field.value = submittedValue;
+          let transformedValue = rawValue;
+
+          if (field.field_type === "search_listbox") {
+            transformedValue = rawValue?.value || "";
+          } else if (field.field_type === "boolean_checkbox") {
+            transformedValue = rawValue ? "yes" : "no";
+          } else if (field.field_type === "date_parts") {
+            if (rawValue instanceof Date && !isNaN(rawValue.getTime())) {
+              const year = rawValue.getFullYear();
+              const month = String(rawValue.getMonth() + 1).padStart(2, "0");
+              const day = String(rawValue.getDate()).padStart(2, "0");
+              transformedValue = `${year}-${month}-${day}`; // "YYYY-MM-DD"
+            } else {
+              transformedValue = "";
+            }
+          }
+
+          // Save using the correct structure
+          if (transformedValue !== undefined) {
+            if (["boolean_checkbox", "date_parts"].includes(field.field_type)) {
+              field.value = { val: transformedValue };
+            } else {
+              field.value = transformedValue;
+            }
           }
         }
       }
@@ -117,7 +137,7 @@ const DynamicForm = () => {
                 styles={{
                   control: (base) => ({
                     ...base,
-                    width: "300px", // or "300px" if you want a fixed width
+                    width: "300px",
                   }),
                   menuPortal: (base) => ({ ...base, zIndex: 2147483647 }),
                 }}
