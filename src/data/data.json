@@ -5534,7 +5534,7 @@
           }
         }
       },
-      "supply_details_if_regarding_remaining_beyond_validity_refusal_of_entry_or_previously_applying_to_enter": {
+      "supply_details": {
         "field_type": "str",
         "location": [
           965,

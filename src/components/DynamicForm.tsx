@@ -40,9 +40,25 @@ const DynamicForm = () => {
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (formData: Record<string, any>) => {
     setLoading(true);
-    console.log("Form Data:", data);
+    console.log("Form Data:", formData);
+    const output = structuredClone(formSchema); // Deep copy to avoid mutation
+
+    for (const [pageKey, sections] of Object.entries(output)) {
+      for (const [sectionKey, fields] of Object.entries(sections)) {
+        for (const [fieldKey, field] of Object.entries(fields)) {
+          const flatKey = `${pageKey}.${sectionKey}.${fieldKey}`; // or whatever key format you're using
+          const submittedValue = formData[flatKey];
+  
+          if (submittedValue !== undefined) {
+            field.value = submittedValue;
+          }
+        }
+      }
+    }
+  
+    console.log("Recreated schema:", output);
     // try {
     //   const response = await axios.post('https://your-backend-endpoint.com/generate-pdf', data, {
     //     responseType: 'blob',
