@@ -71,6 +71,8 @@ const getColorActive = (arg: string) => {
 
 export const Button = styled.button<ButtonProps>`
     white-space: nowrap;
+    margin-left: 82px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;

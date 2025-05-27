@@ -50,8 +50,11 @@ const DynamicForm = () => {
 
           let transformedValue = rawValue;
 
+          const isEmpty =
+            rawValue === undefined || rawValue === null || rawValue === "";
+
           if (field.field_type === "search_listbox") {
-            transformedValue = rawValue?.value || "";
+            transformedValue = rawValue?.value || null;
           } else if (field.field_type === "boolean_checkbox") {
             transformedValue = rawValue ? "yes" : "no";
           } else if (field.field_type === "date_parts") {
@@ -59,19 +62,18 @@ const DynamicForm = () => {
               const year = rawValue.getFullYear();
               const month = String(rawValue.getMonth() + 1).padStart(2, "0");
               const day = String(rawValue.getDate()).padStart(2, "0");
-              transformedValue = `${year}-${month}-${day}`; // "YYYY-MM-DD"
+              transformedValue = `${year}-${month}-${day}`;
             } else {
-              transformedValue = "";
+              transformedValue = null;
             }
+          } else if (isEmpty) {
+            transformedValue = null;
           }
 
-          // Save using the correct structure
-          if (transformedValue !== undefined) {
-            if (["boolean_checkbox", "date_parts"].includes(field.field_type)) {
-              field.value = { val: transformedValue };
-            } else {
-              field.value = transformedValue;
-            }
+          if (["boolean_checkbox", "date_parts"].includes(field.field_type)) {
+            field.value = { val: transformedValue };
+          } else {
+            field.value = transformedValue;
           }
         }
       }
@@ -245,8 +247,9 @@ const DynamicForm = () => {
         ))
       )}
       <Button background="purple" disabled={loading} type="submit">
-        {loading ? <Spinner/> : "Generate Form"}
+        {loading ? <Spinner /> : "Generate Form"}
       </Button>
+<div style={{height: '30px'}}></div>
     </form>
   );
 };
