@@ -39,6 +39,7 @@ const DynamicForm = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = async (formData: Record<string, any>) => {
+    console.log("Form data before transformation:", formData);
     setLoading(true);
     const output = structuredClone(formSchema);
 
