@@ -224,7 +224,7 @@ const DynamicForm = () => {
       {Object.entries(formSchema).map(([pageKey, sections]) =>
         Object.entries(sections).map(([sectionKey, fields]) => (
           <div key={sectionKey}>
-            <h2>{sectionKey.replace(/_/g, " ").toUpperCase()}</h2>
+            <h2 style={{textTransform: 'capitalize'}}>{sectionKey.replace(/_/g, " ")}</h2>
             {Object.entries(fields)
               .filter(
                 ([fieldKey]) => fieldKey !== "validate" && fieldKey !== "ok"
