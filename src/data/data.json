@@ -80,10 +80,10 @@
           491
         ],
         "options": [
-          "F Female",
-          "M Male",
-          "U Unknown",
-          "X Another gender"
+          "Female",
+          "Male",
+          "Unknown",
+          "Another gender"
         ],
         "value": "Male"
       },
@@ -1903,7 +1903,7 @@
           "Unknown",
           "Widowed"
         ],
-        "value": "married"
+        "value": "Married"
       },
       "date_married_or_common_law": {
         "field_type": "str",
@@ -2518,7 +2518,7 @@
           "Both",
           "Neither"
         ],
-        "value": "both"
+        "value": "Both"
       },
       "lang_most_at_ease": {
         "field_type": "search_listbox",

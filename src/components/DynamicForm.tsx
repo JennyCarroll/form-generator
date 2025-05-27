@@ -8,6 +8,7 @@ import dummyData from '../data/data.json';
 // import axios from 'axios';
 
 
+
 const DynamicForm = () => {
   const { control, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
@@ -37,6 +38,18 @@ const DynamicForm = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderField = (name: string, field: any) => {
+    const selectOptions = Array.isArray(field.options) && field.options.length > 0
+    ? field.options.map((opt: string) => ({
+        label: opt,
+        value: opt,
+      }))
+    : [{
+        label: field.value,
+        value: field.value,
+      }];
+
+    const selectedOption = selectOptions.find((opt: { label: string; value: string }) => opt.value === field.value) || '';
+
     switch (field.field_type) {
       case 'str':
         return (
@@ -44,7 +57,7 @@ const DynamicForm = () => {
             name={name}
             control={control}
             defaultValue={field.value || ''}
-            render={({ field }) => <input {...field} />}
+            render={({ field: controllerField }) => <input {...controllerField} />}
           />
         );
       case 'search_listbox':
@@ -53,10 +66,12 @@ const DynamicForm = () => {
             name={name}
             control={control}
             defaultValue={field.value || ''}
-            render={({ field }) => (
-              <Select
-                {...field}
-                options={[{ label: field.value, value: field.value }]} // Replace with actual options
+                  render={({ field: controllerField }) => (
+        <Select
+          {...controllerField}
+          options={selectOptions}
+          value={selectedOption || ""}
+          onChange={(val) => controllerField.onChange(val)}
               />
             )}
           />
@@ -67,8 +82,8 @@ const DynamicForm = () => {
             name={name}
             control={control}
             defaultValue={field.value?.val === 'yes'}
-            render={({ field }) => (
-              <input type="checkbox" {...field} checked={field.value} />
+            render={({ field: controllerField  }) => (
+              <input type="checkbox" {...controllerField} checked={field.value} />
             )}
           />
         );
@@ -78,12 +93,48 @@ const DynamicForm = () => {
             name={name}
             control={control}
             defaultValue={new Date(field.value?.val)}
-            render={({ field }) => (
-              <DatePicker selected={field.value} onChange={field.onChange} />
+            render={({ field: controllerField  }) => (
+                <DatePicker
+                selected={controllerField.value}
+                onChange={controllerField.onChange}
+              />
             )}
           />
         );
-      // Add more cases as needed
+        case 'func':
+            if (field.func_name === 'phone_parts') {
+              const val = field.value || {};
+              return (
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <Controller
+                    name={`${name}.country_code`}
+                    control={control}
+                    defaultValue={val.country_code || ''}
+                    render={({ field: controllerField }) => (
+                      <input
+                        {...controllerField}
+                        placeholder="Country Code"
+                        style={{ width: 80 }}
+                      />
+                    )}
+                  />
+                  <Controller
+                    name={`${name}.number`}
+                    control={control}
+                    defaultValue={val.number || ''}
+                    render={({ field: controllerField }) => (
+                      <input
+                        {...controllerField}
+                        placeholder="Phone Number"
+                        style={{ width: 150 }}
+                      />
+                    )}
+                  />
+                </div>
+              );
+            }
+            return null;
+          
       default:
         return null;
     }
