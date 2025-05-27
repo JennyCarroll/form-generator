@@ -5,7 +5,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button, Spinner } from "./Button.styled";
 import dummyData from "../data/data.json";
-// import axios from 'axios';
+import axios from 'axios';
 
 interface Field {
   field_type: string;
@@ -80,14 +80,23 @@ const DynamicForm = () => {
     }
 
     console.log("Recreated schema:", output);
-    // try {
-    //   const response = await axios.post('https://your-backend-endpoint.com/generate-pdf', data, {
-    //     responseType: 'blob',
-    //   });
-    //   // Handle the PDF blob response
-    // } catch (error) {
-    //   console.error('Error generating PDF:', error);
-    // }
+
+
+    // form_number=1295,form_data=form_data, debug=debug
+  // response is path on the local machine
+
+  try {
+    const response = await axios.post('http://localhost:5000/process_pdf', {
+      form_number: '1295',
+      form_data: output
+    });
+    setLoading(false)
+    console.log("response from server:", response.data)
+    // data will have a file_path field to a flattened pdf that I can use to render the pdf
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+  }
+  
   };
 
   const renderField = (name: string, field: Field) => {
