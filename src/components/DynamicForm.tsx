@@ -95,7 +95,9 @@ const DynamicForm = () => {
         Object.entries(sections).map(([sectionKey, fields]) => (
           <div key={sectionKey}>
             <h2>{sectionKey.replace(/_/g, ' ')}</h2>
-            {Object.entries(fields).map(([fieldKey, field]) => (
+            {Object.entries(fields)
+            .filter(([fieldKey]) => fieldKey !== 'validate' && fieldKey !== 'ok')
+            .map(([fieldKey, field]) => (
               <div key={fieldKey}>
                 <label>{fieldKey.replace(/_/g, ' ')}</label>
                 {renderField(`${pageKey}.${sectionKey}.${fieldKey}`, field)}
