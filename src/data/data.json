@@ -1,0 +1,885 @@
+{
+  "page1": {
+    "personal_details": {
+      "uci": {
+        "field_type": "str",
+        "location": [740, 311],
+        "value": "039862057"
+      },
+      "service_in_language": {
+        "field_type": "search_listbox",
+        "location": [1021, 309],
+        "value": "French"
+      },
+      "family_name": {
+        "field_type": "str",
+        "location": [791, 379],
+        "value": "Yaffe"
+      },
+      "given_name": {
+        "field_type": "str",
+        "location": [1117, 378],
+        "value": "David"
+      },
+      "ever_used_other_name": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1020, 402], "no": [967, 403] }
+        }
+      },
+      "other_family_name": {
+        "field_type": "str",
+        "location": [795, 449],
+        "value": "Moshe"
+      },
+      "other_given_name": {
+        "field_type": "str",
+        "location": [1113, 447],
+        "value": "Moshiko"
+      },
+      "sex": {
+        "field_type": "search_listbox",
+        "location": [678, 491],
+        "value": "Male"
+      },
+      "date_of_birth": {
+        "field_type": "date_parts",
+        "location": [0, 0],
+        "value": {
+          "val": "1983-07-12",
+          "locs": { "yyyy": [773, 488], "mm": [823, 488], "dd": [860, 488] }
+        }
+      },
+      "city_of_birth": {
+        "field_type": "str",
+        "location": [994, 498],
+        "value": "Petah Tikva"
+      },
+      "country_of_birth": {
+        "field_type": "search_listbox",
+        "location": [1187, 497],
+        "value": "Israel"
+      },
+      "citizenship": {
+        "field_type": "search_listbox",
+        "location": [754, 529],
+        "value": "Israel"
+      },
+      "current_country_of_residency": {
+        "field_type": "search_listbox",
+        "location": [726, 581],
+        "value": "Poland"
+      },
+      "current_status": {
+        "field_type": "search_listbox",
+        "location": [898, 583],
+        "value": "Other"
+      },
+      "current_other": {
+        "field_type": "str",
+        "location": [1059, 583],
+        "value": "Something Else"
+      },
+      "current_from": {
+        "field_type": "str",
+        "location": [1180, 585],
+        "value": "2020-01-01"
+      },
+      "current_to": {
+        "field_type": "str",
+        "location": [1252, 583],
+        "value": "2025-06-18"
+      },
+      "recent_prev_country": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1209, 611], "no": [1158, 611] }
+        }
+      },
+      "prev1_country_of_residency": {
+        "field_type": "search_listbox",
+        "location": [731, 654],
+        "value": "Argentina"
+      },
+      "prev1_status": {
+        "field_type": "search_listbox",
+        "location": [902, 654],
+        "value": "Other"
+      },
+      "prev1_other": {
+        "field_type": "str",
+        "location": [1060, 654],
+        "value": "Hot Aregentina"
+      },
+      "prev1_from": {
+        "field_type": "str",
+        "location": [1182, 654],
+        "value": "2021-01-02"
+      },
+      "prev1_to": {
+        "field_type": "str",
+        "location": [1252, 654],
+        "value": "2022-01-01"
+      },
+      "prev2_country_of_residency": {
+        "field_type": "search_listbox",
+        "location": [731, 692],
+        "value": "Brazil"
+      },
+      "prev2_status": {
+        "field_type": "search_listbox",
+        "location": [901, 692],
+        "value": "Other"
+      },
+      "prev2_other": {
+        "field_type": "str",
+        "location": [1059, 692],
+        "value": "Brazil Brazil"
+      },
+      "prev2_from": {
+        "field_type": "str",
+        "location": [1181, 692],
+        "value": "2022-02-01"
+      },
+      "prev2_to": {
+        "field_type": "str",
+        "location": [1252, 692],
+        "value": "2023-02-01"
+      },
+      "applying_eq_current_country": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "no",
+          "locs": { "yes": [1007, 722], "no": [965, 723] }
+        }
+      },
+      "applying_country": {
+        "field_type": "search_listbox",
+        "location": [726, 760],
+        "value": "Israel"
+      },
+      "applying_status": {
+        "field_type": "search_listbox",
+        "location": [897, 760],
+        "value": "Other"
+      },
+      "applying_other": {
+        "field_type": "str",
+        "location": [1061, 760],
+        "value": "Student on the beach"
+      },
+      "applying_from": {
+        "field_type": "str",
+        "location": [1182, 760],
+        "value": "2024-01-01"
+      },
+      "applying_to": {
+        "field_type": "str",
+        "location": [1252, 760],
+        "value": "2025-06-18"
+      },
+      "current_martial_status": {
+        "field_type": "search_listbox",
+        "location": [741, 801],
+        "value": "married"
+      },
+      "date_married_or_common_law": {
+        "field_type": "str",
+        "location": [1217, 800],
+        "value": "2010-01-01"
+      },
+      "partner_family_name": {
+        "field_type": "str",
+        "location": [783, 851],
+        "value": "Adi"
+      },
+      "partner_given_names": {
+        "field_type": "str",
+        "location": [1113, 854],
+        "value": "Lali"
+      }
+    }
+  },
+  "page2": {
+    "personal_details_continued": {
+      "previous_partner": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [954, 212], "no": [916, 212] }
+        }
+      },
+      "prev_partner_family_name": {
+        "field_type": "str",
+        "location": [786, 262],
+        "value": "Levi"
+      },
+      "prev_partner_given_names": {
+        "field_type": "str",
+        "location": [1125, 262],
+        "value": "Moran"
+      },
+      "prev_partner_date_of_birth": {
+        "field_type": "date_parts",
+        "location": [0, 0],
+        "value": {
+          "val": "1983-07-12",
+          "locs": { "yyyy": [669, 297], "mm": [722, 297], "dd": [762, 297] }
+        }
+      },
+      "type_of_relationship": {
+        "field_type": "search_listbox",
+        "location": [923, 303],
+        "value": "Married"
+      },
+      "prev_partner_from": {
+        "field_type": "str",
+        "location": [1140, 301],
+        "value": "2016-01-01"
+      },
+      "prev_partner_to": {
+        "field_type": "str",
+        "location": [1239, 301],
+        "value": "2020-02-02"
+      },
+      "languages": {
+        "mother_toung": {
+          "field_type": "search_listbox",
+          "location": [855, 356],
+          "value": "Hebrew"
+        },
+        "able_to_communicate_en_or_fr": {
+          "field_type": "search_listbox",
+          "location": [1062, 356],
+          "value": "both"
+        },
+        "lang_most_at_ease": {
+          "field_type": "search_listbox",
+          "location": [1171, 359],
+          "value": "English"
+        },
+        "language_test": {
+          "field_type": "boolean_checkbox",
+          "location": [0, 0],
+          "value": {
+            "val": "yes",
+            "locs": { "yes": [1045, 381], "no": [1006, 380] }
+          }
+        }
+      },
+      "passport": {
+        "passport_number": {
+          "field_type": "str",
+          "location": [739, 431],
+          "value": "123123123"
+        },
+        "country_territory_of_issue": {
+          "field_type": "search_listbox",
+          "location": [1079, 430],
+          "value": "Israel"
+        },
+        "issue_date": {
+          "field_type": "str",
+          "location": [1145, 431],
+          "value": "2019-01-01"
+        },
+        "expiry_date": {
+          "field_type": "str",
+          "location": [1244, 432],
+          "value": "2029-01-01"
+        },
+        "is_taiwan": {
+          "field_type": "boolean_checkbox",
+          "location": [0, 0],
+          "value": {
+            "val": "no",
+            "locs": { "yes": [1178, 460], "no": [1140, 460] }
+          }
+        },
+        "is_israeli": {
+          "field_type": "boolean_checkbox",
+          "location": [0, 0],
+          "value": {
+            "val": "yes",
+            "locs": { "yes": [889, 480], "no": [850, 480] }
+          }
+        }
+      },
+      "national_identity_document": {
+        "have_national_identity_document": {
+          "field_type": "boolean_checkbox",
+          "location": [0, 0],
+          "value": {
+            "val": "yes",
+            "locs": { "yes": [875, 520], "no": [838, 518] }
+          }
+        },
+        "document_number": {
+          "field_type": "str",
+          "location": [733, 555],
+          "value": "123123123"
+        },
+        "country_territory_of_issue": {
+          "field_type": "search_listbox",
+          "location": [1079, 553],
+          "value": "Israel"
+        },
+        "issue_date": {
+          "field_type": "str",
+          "location": [1137, 553],
+          "value": "2023-01-01"
+        },
+        "expiry_date": {
+          "field_type": "str",
+          "location": [1240, 552],
+          "value": "2028-01-01"
+        }
+      },
+      "us_pr_card": {
+        "lawful_us_permanent_resident": {
+          "field_type": "boolean_checkbox",
+          "location": [0, 0],
+          "value": {
+            "val": "yes",
+            "locs": { "yes": [928, 596], "no": [887, 596] }
+          }
+        },
+        "uscis_number": {
+          "field_type": "str",
+          "location": [861, 632],
+          "value": "123123123"
+        },
+        "expiry_date": {
+          "field_type": "str",
+          "location": [1193, 631],
+          "value": "2026-06-06"
+        }
+      },
+      "contact_info": {
+        "mailing_po_box": {
+          "field_type": "str",
+          "location": [682, 757],
+          "value": ""
+        },
+        "mailing_apt_unit": {
+          "field_type": "str",
+          "location": [778, 757],
+          "value": "1703"
+        },
+        "mailing_street_number": {
+          "field_type": "str",
+          "location": [865, 757],
+          "value": "15"
+        },
+        "mailing_street_name": {
+          "field_type": "str",
+          "location": [1101, 756],
+          "value": "Azriel"
+        },
+        "mailing_city_town": {
+          "field_type": "str",
+          "location": [706, 794],
+          "value": "Petach Tikva"
+        },
+        "mailing_country_territory": {
+          "field_type": "search_listbox",
+          "location": [997, 793],
+          "value": "Israel"
+        },
+        "mailing_province_state": {
+          "field_type": "search_listbox",
+          "location": [1056, 793],
+          "value": "None"
+        },
+        "mailing_postal_code": {
+          "field_type": "str",
+          "location": [1100, 794],
+          "value": "mgf kgf"
+        },
+        "mailing_district": {
+          "field_type": "str",
+          "location": [1214, 794],
+          "value": "Center"
+        },
+        "residential_same_as_mailing_address": {
+          "field_type": "boolean_checkbox",
+          "location": [0, 0],
+          "value": {
+            "val": "no",
+            "locs": { "yes": [867, 820], "no": [819, 818] }
+          }
+        },
+        "residential_apt_unit": {
+          "field_type": "str",
+          "location": [678, 851],
+          "value": "11"
+        },
+        "residential_street_number": {
+          "field_type": "str",
+          "location": [774, 851],
+          "value": "15"
+        },
+        "residential_street_name": {
+          "field_type": "str",
+          "location": [940, 852],
+          "value": "Zabutinsky"
+        },
+        "residential_city_town": {
+          "field_type": "str",
+          "location": [1178, 851],
+          "value": "Bnei Brak"
+        },
+        "current_country": {
+          "field_type": "search_listbox",
+          "location": [873, 892],
+          "value": "Poland"
+        },
+        "residential_province_state": {
+          "field_type": "search_listbox",
+          "location": [909, 894],
+          "value": "None"
+        },
+        "residential_postal_code": {
+          "field_type": "str",
+          "location": [977, 892],
+          "value": "123"
+        },
+        "residential_district": {
+          "field_type": "str",
+          "location": [1157, 893],
+          "value": "Kurva District"
+        },
+        "main_phone_type": {
+          "field_type": "search_listbox",
+          "location": [740, 960],
+          "value": "Cellular"
+        },
+        "main_phone_number": {
+          "field_type": "func",
+          "func_name": "phone_parts",
+          "location": [0, 0],
+          "value": {
+            "is_us_or_can_numb": "yes",
+            "number": "236-668-6754",
+            "country_code": "1",
+            "loc_country_code": [771, 961],
+            "loc1": [813, 962],
+            "loc2": [849, 962],
+            "loc3": [896, 962],
+            "loc_no": [802, 917],
+            "loc_yes": [732, 917]
+          }
+        },
+        "main_phone_extension": {
+          "field_type": "str",
+          "location": [937, 959],
+          "value": "11"
+        },
+        "alternate_phone_type": {
+          "field_type": "search_listbox",
+          "location": [1062, 960],
+          "value": "Cellular"
+        },
+        "alternate_phone_number": {
+          "field_type": "func",
+          "func_name": "phone_parts",
+          "location": [0, 0],
+          "value": {
+            "is_us_or_can_numb": "no",
+            "country_code": "972",
+            "number": "547549039",
+            "loc_country_code": [1093, 961],
+            "loc1": [1136, 965],
+            "loc2": [1174, 963],
+            "loc3": [1220, 963],
+            "loc_no": [1148, 919],
+            "loc_yes": [1078, 916]
+          }
+        },
+        "alternate_phone_extension": {
+          "field_type": "str",
+          "location": [1264, 961],
+          "value": "11"
+        }
+      }
+    }
+  },
+  "page3": {
+    "contact_info_continued": {
+      "email": {
+        "field_type": "str",
+        "location": [1126, 226],
+        "value": "david.yafe@gmail.com"
+      }
+    },
+    "details_of_intended_work_in_canada": {
+      "type_of_work_permit": {
+        "field_type": "search_listbox",
+        "location": [1006, 289],
+        "value": "Exemption from Labour Market Impact Assessment"
+      },
+      "employer_name": {
+        "field_type": "str",
+        "location": [1032, 347],
+        "value": "Aliro Immigration"
+      },
+      "employer_address": {
+        "field_type": "str",
+        "location": [950, 390],
+        "value": "Downtown Vancouver"
+      },
+      "province": {
+        "field_type": "search_listbox",
+        "location": [680, 433],
+        "value": "BC"
+      },
+      "city_town": {
+        "field_type": "search_listbox",
+        "location": [902, 436],
+        "value": "Vancouver"
+      },
+      "address": {
+        "field_type": "str",
+        "location": [1080, 439],
+        "value": "Seymour"
+      },
+      "occupation_in_canada": {
+        "field_type": "str",
+        "location": [765, 485],
+        "value": "web developer"
+      },
+      "description_of_duties": {
+        "field_type": "str",
+        "location": [1078, 486],
+        "value": "make magic happen"
+      },
+      "from": {
+        "field_type": "str",
+        "location": [786, 524],
+        "value": "2025-12-12"
+      },
+      "to": {
+        "field_type": "str",
+        "location": [889, 523],
+        "value": "2026-12-12"
+      },
+      "LMIA_or_exempt_number": {
+        "field_type": "str",
+        "location": [1094, 524],
+        "value": "A1234567"
+      }
+    },
+    "education": {
+      "previous_studies": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1076, 562], "no": [1027, 560] }
+        }
+      },
+      "from_year": {
+        "field_type": "str",
+        "location": [681, 608],
+        "value": "2023"
+      },
+      "from_month": {
+        "field_type": "str",
+        "location": [732, 610],
+        "value": "1"
+      },
+      "to_year": {
+        "field_type": "str",
+        "location": [678, 645],
+        "value": "2024"
+      },
+      "to_month": { "field_type": "str", "location": [731, 646], "value": "5" },
+      "field_and_level_of_study": {
+        "field_type": "str",
+        "location": [843, 610],
+        "value": "11"
+      },
+      "school_facility_name": {
+        "field_type": "str",
+        "location": [1090, 614],
+        "value": "11"
+      },
+      "city_town": {
+        "field_type": "str",
+        "location": [838, 649],
+        "value": "Encino"
+      },
+      "country_territory": {
+        "field_type": "search_listbox",
+        "location": [1196, 649],
+        "value": "Israel"
+      },
+      "province_state": {
+        "field_type": "search_listbox",
+        "location": [1240, 649],
+        "value": ""
+      }
+    },
+    "employment": {
+      "emp1_from_year": {
+        "field_type": "str",
+        "location": [683, 731],
+        "value": "2019"
+      },
+      "emp1_from_month": {
+        "field_type": "str",
+        "location": [732, 733],
+        "value": "12"
+      },
+      "emp1_to_year": {
+        "field_type": "str",
+        "location": [684, 767],
+        "value": "2020"
+      },
+      "emp1_to_month": {
+        "field_type": "str",
+        "location": [731, 767],
+        "value": "12"
+      },
+      "emp1_occupation": {
+        "field_type": "str",
+        "location": [874, 733],
+        "value": "Constructions"
+      },
+      "emp1_employer": {
+        "field_type": "str",
+        "location": [1154, 732],
+        "value": "Mall"
+      },
+      "emp1_city_town": {
+        "field_type": "str",
+        "location": [836, 770],
+        "value": "Petah Tikva"
+      },
+      "emp1_country_territory": {
+        "field_type": "search_listbox",
+        "location": [1196, 771],
+        "value": "United States of America"
+      },
+      "emp1_province_state": {
+        "field_type": "search_listbox",
+        "location": [1278, 769],
+        "value": "CA"
+      },
+      "emp2_from_year": {
+        "field_type": "str",
+        "location": [683, 808],
+        "value": "2014"
+      },
+      "emp2_from_month": {
+        "field_type": "str",
+        "location": [732, 806],
+        "value": "01"
+      },
+      "emp2_to_year": {
+        "field_type": "str",
+        "location": [684, 842],
+        "value": "2017"
+      },
+      "emp2_to_month": {
+        "field_type": "str",
+        "location": [728, 842],
+        "value": "11"
+      },
+      "emp2_occupation": {
+        "field_type": "str",
+        "location": [920, 807],
+        "value": "Shesh Besh"
+      },
+      "emp2_employer": {
+        "field_type": "str",
+        "location": [1154, 809],
+        "value": "new place"
+      },
+      "emp2_city_town": {
+        "field_type": "str",
+        "location": [839, 845],
+        "value": "Petah Tikva"
+      },
+      "emp2_country_territory": {
+        "field_type": "search_listbox",
+        "location": [1195, 844],
+        "value": "Israel"
+      },
+      "emp2_province_state": {
+        "field_type": "search_listbox",
+        "location": [1277, 844],
+        "value": "None"
+      },
+      "emp3_from_year": {
+        "field_type": "str",
+        "location": [682, 879],
+        "value": "2016"
+      },
+      "emp3_from_month": {
+        "field_type": "str",
+        "location": [733, 881],
+        "value": "11"
+      },
+      "emp3_to_year": {
+        "field_type": "str",
+        "location": [680, 917],
+        "value": "2017"
+      },
+      "emp3_to_month": {
+        "field_type": "str",
+        "location": [731, 918],
+        "value": "11"
+      },
+      "emp3_occupation": {
+        "field_type": "str",
+        "location": [895, 878],
+        "value": "sales"
+      },
+      "emp3_employer": {
+        "field_type": "str",
+        "location": [1169, 883],
+        "value": "bezeq"
+      },
+      "emp3_city_town": {
+        "field_type": "str",
+        "location": [834, 922],
+        "value": "tlv"
+      },
+      "emp3_country_territory": {
+        "field_type": "search_listbox",
+        "location": [1195, 920],
+        "value": "Israel"
+      },
+      "emp3_province_state": {
+        "field_type": "search_listbox",
+        "location": [1277, 919],
+        "value": "None"
+      }
+    }
+  },
+  "page4": {
+    "background_information": {
+      "last_2_years_lung_tubor": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1248, 239], "no": [1200, 238] }
+        }
+      },
+      "physical_or_mental_disorder": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1247, 261], "no": [1199, 261] }
+        }
+      },
+      "details_and_family_member_name": {
+        "field_type": "str",
+        "location": [944, 325],
+        "value": "Moshe Got Mandavoshkes"
+      },
+      "remain_beyond_validity": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1250, 378], "no": [1199, 379] }
+        }
+      },
+      "ever_been_refused": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1249, 399], "no": [1199, 401] }
+        }
+      },
+      "previously_apply_to_canada": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1251, 422], "no": [1199, 423] }
+        }
+      },
+      "supply_details_if_yes1": {
+        "field_type": "str",
+        "location": [965, 496],
+        "value": "11"
+      },
+      "ever_been_arrested": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1242, 557], "no": [1190, 556] }
+        }
+      },
+      "details_if_arrested": {
+        "field_type": "str",
+        "location": [974, 626],
+        "value": "Nothing, just all murder"
+      },
+      "army_service": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1241, 689], "no": [1192, 690] }
+        }
+      },
+      "details_if_served_in_army": {
+        "field_type": "str",
+        "location": [963, 764],
+        "value": "Something nice for the demo"
+      },
+      "is_associated_politically": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1242, 835], "no": [1193, 835] }
+        }
+      },
+      "mistreated_prisoners": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1240, 859], "no": [1191, 859] }
+        }
+      }
+    }
+  },
+  "page5": {
+    "consent": {
+      "user_consent": {
+        "field_type": "boolean_checkbox",
+        "location": [0, 0],
+        "value": {
+          "val": "yes",
+          "locs": { "yes": [1053, 261], "no": [1002, 261] }
+        }
+      },
+      "validate": {
+        "field_type": "str",
+        "location": [960, 674],
+        "value": ""
+      },
+      "ok": {
+        "field_type": "str",
+        "location": [1159, 608],
+        "value": ""
+      }
+    }
+  }
+}
