@@ -186,6 +186,7 @@ const DynamicForm = () => {
                 onChange={controllerField.onChange}
                 popperClassName="datepicker-popper"
                 portalId="root-portal"
+                className='custom-date-style'
               />
             )}
           />
