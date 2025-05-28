@@ -71,7 +71,10 @@ const DynamicForm = () => {
           }
 
           if (["boolean_checkbox", "date_parts"].includes(field.field_type)) {
-            field.value = { val: transformedValue };
+            field.value = {
+              ...(typeof field.value === "object" && field.value !== null ? field.value : {}),
+              val: transformedValue,
+            };
           } else {
             field.value = transformedValue;
           }
