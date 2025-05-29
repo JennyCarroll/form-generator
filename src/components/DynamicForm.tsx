@@ -49,6 +49,7 @@ const DynamicForm = () => {
           const rawValue = formData?.[pageKey]?.[sectionKey]?.[fieldKey];
 
           let transformedValue = rawValue;
+          // const isValidate = fieldKey === "validate" || fieldKey === "ok";
 
           const isEmpty =
             rawValue === undefined || rawValue === null || rawValue === "";
@@ -69,8 +70,13 @@ const DynamicForm = () => {
           } else if (isEmpty) {
             transformedValue = null;
           }
-
-          if (["boolean_checkbox", "date_parts"].includes(field.field_type)) {
+          if (field.func_name === "phone_parts" && typeof rawValue === "object") {
+            field.value = {
+              ...(typeof field.value === "object" && field.value !== null ? field.value : {}),
+              ...rawValue,
+            };
+          }
+          else if (["boolean_checkbox", "date_parts"].includes(field.field_type)) {
             field.value = {
               ...(typeof field.value === "object" && field.value !== null ? field.value : {}),
               val: transformedValue,
@@ -86,35 +92,37 @@ const DynamicForm = () => {
 
 
     // form_number=1295,form_data=form_data, debug=debug
-  // response is path on the local machine
+    // response is path on the local machine
 
-  try {
-    const response = await axios.post('http://localhost:5000/process_pdf', {
-      form_number: '1295',
-      form_data: output
-    });
-    setLoading(false)
-    console.log("response from server:", response.data)
-    // data will have a file_path field to a flattened pdf that I can use to render the pdf
-  } catch (error) {
-    console.error('Error generating PDF:', error);
-  }
-  
+    try {
+      const response = await axios.post('http://aliro-pdf-service.israelcentral.cloudapp.azure.com:5000/process_pdf', {
+        form_number: '1295',
+        form_data: output
+      });
+      setLoading(false)
+      console.log("response from server:", response.data)
+      window.open(`http://aliro-pdf-service.israelcentral.cloudapp.azure.com:5000${response.data.url}`, '_blank', 'noopener,noreferrer');
+      // data will have a file_path field to a flattened pdf that I can use to render the pdf
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert("Request failed wtih status code 500")
+    }
+
   };
 
   const renderField = (name: string, field: Field) => {
     const selectOptions =
       Array.isArray(field.options) && field.options.length > 0
         ? field.options.map((opt: string) => ({
-            label: opt,
-            value: opt,
-          }))
+          label: opt,
+          value: opt,
+        }))
         : [
-            {
-              label: field.value,
-              value: field.value,
-            },
-          ];
+          {
+            label: field.value,
+            value: field.value,
+          },
+        ];
 
     const selectedOption =
       selectOptions.find(
@@ -237,27 +245,28 @@ const DynamicForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       {Object.entries(formSchema).map(([pageKey, sections]) =>
         Object.entries(sections).map(([sectionKey, fields]) => (
-          <div  key={sectionKey}>
-            <h2 style={{textTransform: 'capitalize'}}>{sectionKey.replace(/_/g, " ")}</h2>
+          <div key={sectionKey}>
+            <h2 style={{ textTransform: 'capitalize' }}>{sectionKey.replace(/_/g, " ")}</h2>
             <div className='section'>
-            {Object.entries(fields)
-              .filter(
-                ([fieldKey]) => fieldKey !== "validate" && fieldKey !== "ok"
-              )
-              .map(([fieldKey, field]: [string, Field]) => (
-                <div className="form-group" key={fieldKey}>
-                  <label
-                    className={
-                      field.field_type === "boolean_checkbox"
-                        ? "checkbox-label"
-                        : ""
-                    }
-                  >
-                    {fieldKey.replace(/_/g, " ")}
-                  </label>
-                  {renderField(`${pageKey}.${sectionKey}.${fieldKey}`, field)}
-                </div>
-              ))}
+              {Object.entries(fields)
+                .map(([fieldKey, field]: [string, Field]) => {
+                  const hiddenFields = fieldKey === "validate" || fieldKey === "ok"
+                  return (
+                    <div className={hiddenFields ? "hidden" : "form-group"} key={fieldKey}>
+                      <label
+                        className={
+                          field.field_type === "boolean_checkbox"
+                            ? "checkbox-label"
+                            : ""
+                        }
+                      >
+                        {fieldKey.replace(/_/g, " ")}
+                      </label>
+                      {renderField(`${pageKey}.${sectionKey}.${fieldKey}`, field)}
+                    </div>
+                  )
+
+                })}
 
             </div>
 
@@ -267,7 +276,7 @@ const DynamicForm = () => {
       <Button background="purple" disabled={loading} type="submit">
         {loading ? <Spinner /> : "Generate Form"}
       </Button>
-<div style={{height: '30px'}}></div>
+      <div style={{ height: '30px' }}></div>
     </form>
   );
 };
