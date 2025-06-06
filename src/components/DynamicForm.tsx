@@ -282,3 +282,40 @@ const DynamicForm = () => {
 };
 
 export default DynamicForm;
+
+
+
+// def print_form(self, file_name = "test"):
+// #Printer icon
+// ag.click(1648, 55)
+// time.sleep(5)
+// # OK
+// ag.press("enter")
+// # ag.click(1197, 759)
+// # print button
+// ag.click(1194, 760)
+// time.sleep(5)
+// print(f"writing file name: {file_name}")
+// ag.write(file_name)
+// time.sleep(5)
+// ag.press("enter")
+// time.sleep(2)
+
+// def clear_form(self):
+// print("clearing form")
+// ag.click(350,315)
+// ag.hotkey("left")
+// ag.hotkey("left")
+// ag.hotkey("left")
+// ag.hotkey("left")
+// ag.hotkey("left")
+// ag.hotkey("left")
+// ag.hotkey("left")
+// time.sleep(2)
+// ag.click(1241, 255)
+// time.sleep(2)
+// ag.click(1066, 567)
+// time.sleep(2)
+// ag.click(1161, 561)
+// time.sleep(2)
+
